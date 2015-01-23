@@ -140,6 +140,8 @@ if [ -d "$MODULE_ROOT/ios/" ]; then
   echo "TITANIUM_BASE_SDK4 = \"\$(TITANIUM_SDK)/iphone/include/APSHTTPClient\"" >> $MODULE_ROOT/titanium.xcconfig
   echo "HEADER_SEARCH_PATHS= \$(TITANIUM_BASE_SDK) \$(TITANIUM_BASE_SDK2) \$(TITANIUM_BASE_SDK3) \$(TITANIUM_BASE_SDK4) \${PROJECT_DIR}/**" >> $MODULE_ROOT/titanium.xcconfig
   
+  # Install xctools
+  brew install xctool
 fi
 
 # Android SDK seems to require newer version of SDK
