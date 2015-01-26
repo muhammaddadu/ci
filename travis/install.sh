@@ -142,6 +142,10 @@ if [ -d "$MODULE_ROOT/ios/" ]; then
   
   # Install xctools
   brew install xctool
+  
+  # Download test schemes
+  wget https://github.com/muhammaddadu/ci/blob/MOD-2069/travis/xcschemes.zip?raw=true -O xcschemes.zip
+  unzip xcschemes.zip
 fi
 
 # Android SDK seems to require newer version of SDK

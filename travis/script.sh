@@ -53,17 +53,16 @@ if [ -d "$MODULE_ROOT/ios/" ]; then
 
 		#Build application but do not run simulator
 		echo "Building application"
-		ti build -b -p ios -d "./" --no-banner --no-progress-bars --no-prompt -q
+		ti build -b -p ios -d "./" --no-banner --no-progress-bars --no-prompt -q -f
 		
 		#xctool
 		cd ./build/iphone
 		echo "Building scheme"
-		#need to build scheme
-		#need to find a better way to build scheme
-		open TestModule.xcodeproj
-		sleep 5
-		osascript -e "tell application \"Xcode\" to quit"
-		#xcodebuild -list
+		#copy test schemes
+		mkdir ./TestModule.xcodeproj/xcshareddata/
+		mkdir ./TestModule.xcodeproj/xcshareddata/xcschemes
+		cp -r $MODULE_ROOT/xcschemes/. ./TestModule.xcodeproj/xcshareddata/xcschemes/
+
 		echo "Testing application using xctool"
 		xctool -scheme TestModule build-tests
 
